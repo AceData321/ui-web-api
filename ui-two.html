@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<!-- THX TO
+- ZEEONE
+- ZELTORIA
+- ACEDT
+JANGAN DI HAPUS WAK WM NYA -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Rest Api - Acez</title>
+        <link href="https://long-tan-bonobo-garb.cyclic.app/vendors/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="https://long-tan-bonobo-garb.cyclic.app/vendors/css/vendor.bundle.base.css" rel="stylesheet">
+        <link href="https://long-tan-bonobo-garb.cyclic.app/vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+        <link href="https://long-tan-bonobo-garb.cyclic.app/vendors/owl-carousel-2/owl.carousel.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
+        <link href="https://long-tan-bonobo-garb.cyclic.app/vendors/owl-carousel-2/owl.theme.default.min.css" rel="stylesheet">
+        <link href="https://long-tan-bonobo-garb.cyclic.app/css/style.css" rel="stylesheet">
+        <link rel="shortcut icon" href="https://telegra.ph/file/9884cd755a37ee7898f33.jpg">
+        <link href="https://long-tan-bonobo-garb.cyclic.app/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="https://telegra.ph/file/9884cd755a37ee7898f33.jpg">
+        <link href="https://long-tan-bonobo-garb.cyclic.app/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://long-tan-bonobo-garb.cyclic.app/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+        <meta name="description" content="Acez APIs">
+        <meta property="og:image" content="https://telegra.ph/file/9884cd755a37ee7898f33.jpg">
+        <meta property="og:site_name" content="Acez Apis">
+        <meta name="keywords" content="REST API">
+        <meta name="author" content="Acedt">
+    </head>
+    <body>
+        <body id="page-top" onload="getvisitor();">
+            <div class="container-scroller">
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                        <a class="sidebar-brand brand-logo rounded-circle" href="#">
+                            <img src="https://telegra.ph/file/9884cd755a37ee7898f33.jpg" alt="logo">
+                        </a>
+                        <a class="sidebar-brand brand-logo-mini" href="#">
+                            <img src="https://telegra.ph/file/9884cd755a37ee7898f33.jpg" class="rounded-circle" alt="logo">
+                        </a>
+                    </div>
+                    <font face="Original Surfer">
+                        <ul class="nav">
+                            <li class="nav-item profile">
+                                <div class="profile-desc">
+                                    <div class="profile-pic">
+                                        <div class="count-indicator">
+                                            <img class="img-xs rounded-circle " src="https://telegra.ph/file/9884cd755a37ee7898f33.jpg" alt="">
+                                            <span class="count bg-success"></span>
+                                        </div>
+                                        <div class="profile-name">
+                                            <h5 class="mb-0 font-weight-normal">Acez</h5>
+                                            <span>Nothing Special</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item nav-category">
+                                <span class="nav-link">Docs</span>
+                            </li>
+                            <li class="nav-item menu-items">
+                                <a class="nav-link" href="#">
+                                    <span class="menu-icon">
+                                        <i class="mdi mdi-home"></i>
+                                    </span>
+                                    <span class="menu-title">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item menu-items">
+                                <a class="nav-link" data-toggle="collapse" href="#ui-anime" aria-expanded="false" aria-controls="ui-img-maker">
+                                    <span class="menu-icon">
+                                        <i class="mdi mdi-folder-multiple-image"></i>
+                                    </span>
+                                    <span class="menu-title">Anime API</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <!--
+                                    Example add new navbar item.
+                                    siapa si yg coding berantakan bet.
+                                -->
+                                <div class="collapse" id="ui-anime">
+                                    <ul class="nav flex-column sub-menu">
+					<li class="nav-item">
+                                            <a class="nav-link" href="api/anime/anoboy/search?query=&apikey=Ngapain?">Anoboy Search</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/anoboy/latest?apikey=Ngapain?">Anoboy Latest</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/anoboy/detail?url=&apikey=Ngapain?">Anoboy Detail</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/otakudesu/search?query=&apikey=Ngapain?">Otakudesu Search</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/otakudesu/latest?apikey=Ngapain?">Otakudesu Latest</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/otakudesu/detail?url=&apikey=Ngapain?">Otakudesu Detail </a>
+                                        </li>
+                                        <!-- bates cok -->
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="api/anime/komiku/search?query=&apikey=Ngapain?">Komiku Search</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/komiku/latest?apikey=Ngapain?">Komiku Latest</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/komiku/detail?url=&apikey=Ngapain?">Komiku Detail </a>
+                                        </li>
+                                        <!-- bates -->
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="api/anime/doujindesu/search?query=&apikey=Ngapain?">Doujindesu Search</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/doujindesu/latest?apikey=Ngapain?">Doujindesu Latest</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/doujindesu/detail?url=&apikey=Ngapain?">Doujindesu Detail </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/anime/kusonime?query=&apikey=Ngapain?">Kusonime</a>
+                                        </li>
+                                        <!-- wes -->
+                                    </ul>
+                                </div>
+                                <!--
+                                    Example add new navbar item
+                                -->
+                            </li>
+                            <li class="nav-item menu-items">
+                                <a class="nav-link" data-toggle="collapse" href="#ui-asupan" aria-expanded="false" aria-controls="ui-img-maker">
+                                    <span class="menu-icon">
+                                        <i class="mdi mdi-folder-multiple-image"></i>
+                                    </span>
+                                    <span class="menu-title">Asupan API</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="ui-asupan">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/asupan/china?apikey=Ngapain?">China</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/asupan/vietnam?apikey=Ngapain?">Vietnam</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/asupan/thailand?apikey=Ngapain?">Thailand </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/asupan/indonesia?apikey=Ngapain?">Indonesia</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/asupan/korea?apikey=Ngapain?">Korea</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/asupan/japan?apikey=Ngapain?">Japan</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="api/asupan/malaysia?apikey=Ngapain?">Malaysia</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item menu-items">
+                                <a class="nav-link" data-toggle="collapse" href="#ui-downloader" aria-expanded="false" aria-controls="ui-downloader">
+                                    <span class="menu-icon">
+                                        <i class="mdi mdi-download"></i>
+                                    </span>
+                                    <span class="menu-title">Downloader API</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="ui-downloader">
+                                    <ul class="nav flex-column sub-menu">
+				                    	<li class="nav-item">
+                                            <a class="nav-link"href="api/download/soundcloud?url=&apikey=Ngapain?">SoundCloud</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/mediafire?url=&apikey=Ngapain?">MediaFire</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/zippyshare?url=&apikey=Ngapain?">Zippyshare</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/tiktok?url=https://vt.tiktok.com/ZS82u2sDu/&apikey=Ngapain?">Tiktok</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/facebook?url=https://www.facebook.com/reel/814574926298028?fs=e&s=cl&flite=scwspnss&apikey=Ngapain?">Facebook</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/instagram?apikey=Ngapain?&url=https://www.instagram.com/reel/Cf1HZNvvGuM/?igshid=YmMyMTA2M2Y=">Instagram</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/pinterest?q=loli&apikey=Ngapain?">Pinterest</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/ytmp3?url=https://youtu.be/THsiM3I7sLI&apikey=Ngapain?">YouTube Audio</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"href="api/download/ytmp4?url=https://youtu.be/THsiM3I7sLI&apikey=Ngapain?">YouTube Video</a>
+                                        </li>          
+                                    </ul>
+                                </div>
+                            </li>        
+                                                                    <li class="nav-item nav-category">
+                                                                        <span class="nav-link">Contact Me</span>
+                                                                    </li>
+                                                                    <li class="nav-item menu-items">
+                                                                        <a class="nav-link" href="https://github.com/AceData321">
+                                                                            <span class="menu-icon">
+                                                                                <i class="mdi mdi-github-circle"></i>
+                                                                            </span>
+                                                                            <span class="menu-title">Github</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nav-item menu-items">
+                                                                        <a class="nav-link" href="https://wa.me/6282193034480">
+                                                                            <span class="menu-icon">
+                                                                                <i class="mdi mdi-whatsapp"></i>
+                                                                            </span>
+                                                                            <span class="menu-title">WhatsApp</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nav-item menu-items">
+                                                                        <a class="nav-link" href="https://wa.me/6282193034480">
+                                                                            <span class="menu-icon">
+                                                                                <i class="mdi mdi-star"></i>
+                                                                            </span>
+                                                                            <span class="menu-title">Donasi</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nav-item menu-items">
+                                                                        <a class="nav-link" href="https://instagram.com/acee_dt">
+                                                                            <span class="menu-icon">
+                                                                                <i class="mdi mdi-instagram"></i>
+                                                                            </span>
+                                                                            <span class="menu-title">Instagram</span>
+                                                                        </a>
+                                                                    </li>
+        </ul>
+       </font>
+      </nav>
+                                                                    <div class="container-fluid page-body-wrapper">
+                                                                        <nav class="navbar p-0 fixed-top d-flex flex-row">
+                                                                            <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                                                                                <a class="navbar-brand brand-logo-mini" href="#">
+                                                                                    <big>
+                                                                                        <i class="mdi mdi-biohazard text-primary"></i>
+                                                                                    </big>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                                                                                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                                                                                    <span class="mdi mdi-menu"></span>
+                                                                                </button>
+                                                                                <ul class="navbar-nav w-100">
+                                                                                    <li class="nav-item w-100">
+                                                                                        <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex ">
+                                                                                            <input type="text" class="form-control" placeholder="Acez APIs">
+                                                                                        </form>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <ul class="navbar-nav navbar-nav-right">
+                                                                                    <li class="nav-item nav-settings d-none d-lg-block">
+                                                                                        <a class="nav-link" href="#">
+                                                                                            <i class="mdi mdi-view-grid"></i>
+                                                                                        </a>
+                                                                                    </li>
+
+                                                                                    <li class="nav-item dropdown border-left">
+                                                                                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                                                                                            <i class="mdi mdi-bell"></i>
+                                                                                            <span class="count bg-danger"></span>
+                                                                                        </a>
+                                                                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                                                                                            <h6 class="p-3 mb-0">Info New Update</h6>
+                                                                                            <div class="dropdown-divider"></div>
+                                                                                            <a class="dropdown-item preview-item">
+                                                                                                <div class="preview-thumbnail">
+                                                                                                    <div class="preview-icon bg-dark rounded-circle">
+                                                                                                        <i class="mdi mdi-calendar text-success"></i>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="preview-item-content">
+                                                                                                    <p class="preview-subject mb-1">Change Template</p>
+                                                                                                    <p class="text-muted ellipsis mb-0"> New Template & Update Fitur</p>
+                                                                                                </div>
+                                                                                            </a>
+              </li>
+
+                                                                                            <li class="nav-item dropdown">
+                                                                                                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                                                                                                    <div class="navbar-profile">
+                                                                                                        <img class="img-xs rounded-circle" src="https://telegra.ph/file/9884cd755a37ee7898f33.jpg" alt="">
+                                                                                                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Acezz</p>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                            </li>
+            </ul>
+                                                                                            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                                                                                                <span class="mdi mdi-format-line-spacing"></span>
+                                                                                            </button>
+                                                                                        </div>
+        </nav>
+                                                                                        <div class="main-panel">
+                                                                                            <div class="content-wrapper">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <h5 class="font-weight-bold text-danger text-uppercase">IP Address</h5>
+                                                                                                                <div class="row">
+                                                                                                                    <div class="col-9">
+                                                                                                                        <div class="d-flex align-items-center align-self-start">
+                                                                                                                            <h3 class="mb-0" id="ip">Waiting...</h3>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="col-3">
+                                                                                                                        <div class="icon icon-box-success">
+                                                                                                                            <span class="mdi mdi-access-point-network icon-item"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <font face="Original Surfer" class="text-muted font-weight-normal">Your IP Address</font>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <h6 class="font-weight-bold text-info text-uppercase">Your Battery</h6>
+                                                                                                                <div class="row">
+                                                                                                                    <div class="col-9">
+                                                                                                                        <div class="d-flex align-items-center align-self-start">
+                                                                                                                            <span id="batteryLevel"></span>
+                                                                                                                            <h3 class="mb-0" id="percentageLevel">Waiting...</h3>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="col-3">
+                                                                                                                        <div class="icon icon-box-success ">
+                                                                                                                            <span class="mdi mdi-battery-positive"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <font face="Original Surfer" class="text-muted font-weight-normal">Percentase Your Battery</font>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <h5 class="font-weight-bold text-info text-uppercase">Date</h5>
+                                                                                                                <div class="row">
+                                                                                                                    <div class="col-9">
+                                                                                                                        <div class="d-flex align-items-center align-self-start">
+                                                                                                                            <h4 class="mb-0" id="tanggal">Waiting...</h4>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="col-3">
+                                                                                                                        <div class="icon icon-box-success ">
+                                                                                                                            <span class="mdi mdi-calendar icon-item"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <font face="Original Surfer" class="text-muted font-weight-normal">Date Now</font>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <h5 class="font-weight-bold text-success text-uppercase">Clock</h5>
+                                                                                                                <div class="row">
+                                                                                                                    <div class="col-9">
+                                                                                                                        <div class="d-flex align-items-center align-self-start">
+                                                                                                                            <h4 class="mb-0" id="Clock">Waiting...</h4>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="col-3">
+                                                                                                                        <div class="icon icon-box-success ">
+                                                                                                                            <span class="mdi mdi-clock icon-item"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <font face="Original Surfer" class="text-muted font-weight-normal" id="Ucapan">Ucapan</font>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+ 
+                                                                                                                    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-5404310597803049" data-ad-slot="6657550061"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-6 col-xl-4 grid-margin stretch-card">
+                                                                                                                            <div class="card">
+                                                                                                                                <div class="card-body">
+                                                                                                                                    <div class="mt-3 btn btn-outline-danger bg-transparent">
+                                                                                                                                        <div id="demo" class="alert btn btn-outline-danger" role="alert">
+                                                                                                                                            <span id="Statistic">Waiting...</span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="col-md-12 grid-margin stretch-card">
+                                                                                                                            <div class="card">
+                                                                                                                                <div class="card-body">
+                                                                                                                                    <img src="https://telegra.ph/file/9884cd755a37ee7898f33.jpg" alt="Acez" class="logo img-fluid rounded mx-auto d-block mb-4">
+                                                                                                                                    <h6 class="m-0 font-weight-bold text-primary">Information</h6>
+                                                                                                                                    <h6>
+                                                                                                                                        <br>
+                                                                                                                                        Rest Api Ini Free, Silahkan Di Pake Dengan Bijak. <br>
+                                                                                                                                        <br>
+                                                                                                                                        Jika Menemukan Bug/Error Lapor <a href="https://wa.me/6282193034480"> Owner</a></font>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                                                                                                                                        <footer class="footer">
+                                                                                                                                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                                                                                                                                <div class="bg-dark btn btn-block btn-outline-danger">
+                                                                                                                                                    <font face="Original Surfer" class="text-muted d-block text-center text-sm-left d-sm-inline-block">
+                                                                                                                                                        Copyright © <span id="Years">00</span> Acedt
+                                                                                                                                                    </font>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </footer>
+        </div>
+      </div>
+    </div>
+    <script>
+      swal({
+        title: 'Welcome To Rest Api Acez',
+        text: 'Noted: Sekali Lagi Ini Hanya Ui Fitur Di Website Ini Tidak Bekerja Hanya Ui Nya Saja',
+        imageUrl: 'https://telegra.ph/file/9884cd755a37ee7898f33.jpg',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Acez',
+        animation: true
+      })
+    </script>
+			<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>   
+    <script src="https://long-tan-bonobo-garb.cyclic.app/vendors/js/vendor.bundle.base.js"></script>
+    <script src="https://long-tan-bonobo-garb.cyclic.app/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <script src="https://long-tan-bonobo-garb.cyclic.app/js/off-canvas.js"></script>
+    <script src="https://long-tan-bonobo-garb.cyclic.app/js/hoverable-collapse.js"></script>
+    <script src="https://long-tan-bonobo-garb.cyclic.app/js/misc.js"></script>
+    <script src="https://long-tan-bonobo-garb.cyclic.app/js/settings.js"></script>
+    <script src="https://long-tan-bonobo-garb.cyclic.app/js/todolist.js"></script>
+    <script>
+    // IP
+window.setTimeout("getip()", 1000);
+function getip() {
+	var xhr = new XMLHttpRequest();
+	var url = "https://api.ipify.org?format=json";
+	xhr.onloadend = function () {
+		data = JSON.parse(this.responseText);
+		document.getElementById("ip").textContent = data.ip;
+	};
+	xhr.open("GET", url, true);
+	xhr.send();
+}
+
+function load_quote() {
+	const ajax = new XMLHttpRequest();
+	ajax.open("GET", "", true);
+	ajax.onreadystatechange = function () {
+		if (this.readyState === 4 && this.status === 200) {
+			let data = JSON.parse(this.responseText);
+			document.getElementById("positif-corona").innerHTML +=
+				data.result.positif;
+			document.getElementById("meninggal-corona").innerHTML +=
+				data.result.meninggal;
+			document.getElementById("dirawat-corona").innerHTML +=
+				data.result.dirawat;
+			document.getElementById("sembuh-corona").innerHTML += data.result.sembuh;
+		}
+	};
+	ajax.send();
+}
+load_quote();
+
+// User Agent
+txt = "";
+txt += "<p><b>Version Browser</b>: <br>" + navigator.appVersion + "</p>";
+txt += "<p><b>Language</b>: " + navigator.language + "</p>";
+txt += "<p><b>Browser</b>: " + navigator.appCodeName + "</p>";
+txt += "<p><b>Vendor</b>: " + navigator.vendor + "</p>";
+txt += "<p><b>Browser Online</b>: " + navigator.onLine + "</p>";
+txt += "<p><b>Cookies</b>: " + navigator.cookieEnabled + "</p>";
+txt += "<p><b>Platform</b>: " + navigator.platform + "</p>";
+txt += "<p><b>User Agent</b>: <br>" + navigator.userAgent + "</p>";
+
+myMonths = [
+	"Januari",
+	"Februari",
+	"Maret",
+	"April",
+	"Mei",
+	"Juni",
+	"Juli",
+	"Agustus",
+	"September",
+	"Oktober",
+	"November",
+	"Desember",
+];
+myDays = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum at", "Sabtu"];
+var tgl = new Date();
+var day = tgl.getDate();
+bulan = tgl.getMonth();
+var thisDay = tgl.getDay(),
+	ThisDay = myDays[thisDay];
+var yy = tgl.getYear();
+var year = yy < 1000 ? yy + 1900 : yy;
+
+const tanggal = `${ThisDay}, ${day} - ${myMonths[bulan]} - ${year}`;
+
+document.getElementById("Years").innerHTML = year;
+document.getElementById("Statistic").innerHTML = txt;
+document.getElementById("tanggal").innerHTML = tanggal;
+
+//ucapan Tiap Hari
+Sayings = "";
+var now = new Date();
+var hours = now.getHours();
+if (hours >= 17 || hours <= 2) {
+	Sayings += "<span class='text-light'>Selamat malam 🌚</span>";
+} else if (hours >= 3 && hours <= 10) {
+	Sayings += "<span class='text-info'>Selamat pagi 🌝</span>";
+} else if (hours >= 11 && hours <= 14) {
+	Sayings += "<span class='text-warning'>Selamat Siang 🌞</span>";
+} else if (hours >= 13 && hours <= 16) {
+	Sayings += "<span class='text-success'>Selamat Sore 🌜</span>";
+}
+document.getElementById("Ucapan").innerHTML = Sayings;
+
+// Jam Sekarang
+window.setTimeout("waktu()", 1000);
+function waktu() {
+	var d = new Date();
+	const jam = d.getHours();
+	const menit = d.getMinutes();
+	const detik = d.getSeconds();
+	setTimeout("waktu()", 1000);
+	document.getElementById("Clock").innerHTML =
+		jam + " : " + menit + " : " + detik;
+}
+
+// Count Down Idul Adha
+var countDownDate = new Date("Des 12, 2121 00:00:00").getTime();
+
+var x = setInterval(function () {
+	var now = new Date().getTime();
+	var distance = countDownDate - now;
+
+	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	document.getElementById("IdulAdha").innerHTML =
+		days + " Days " + hours + " Hours " + minutes + " Min " + seconds + " Sec ";
+	if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("IdulAdha").innerHTML =
+			"Selamat Hari (..)";
+	}
+}, 1000);
+
+var batteryLevel = document.getElementById("batteryLevel");
+var styleBatteryLevel = batteryLevel.style;
+var percentageLevel = document.getElementById("percentageLevel");
+navigator.getBattery().then(function (battery) {
+	function updateAllBatteryInfo() {
+		updateLevelInfo();
+	}
+	updateAllBatteryInfo();
+	battery.addEventListener("levelchange", function () {
+		setInterval(function () {
+			updateLevelInfo();
+		}, 1000);
+	});
+	function updateLevelInfo() {
+		var numBattery = battery.level * 100;
+		percentageLevel.textContent = Math.round(numBattery) + "%";
+		styleBatteryLevel.height = numBattery + "%";
+		if (numBattery <= 15) {
+			styleBatteryLevel.background = "red";
+		}
+	}
+});
+
+(function ($) {
+	"use strict";
+	$("#image")[0].src = randImage;
+
+	$.fn.andSelf = function () {
+		return this.addBack.apply(this, arguments);
+	};
+	$(function () {
+		if ($("#currentBalanceCircle").length) {
+			var bar = new ProgressBar.Circle(currentBalanceCircle, {
+				color: "#000",
+				// This has to be the same size as the maximum width to
+				// prevent clipping
+				strokeWidth: 12,
+				trailWidth: 12,
+				trailColor: "#0d0d0d",
+				easing: "easeInOut",
+				duration: 1400,
+				text: {
+					autoStyleContainer: false,
+				},
+				from: { color: "#d53f3a", width: 12 },
+				to: { color: "#d53f3a", width: 12 },
+				// Set default step function for all animate calls
+				step: function (state, circle) {
+					circle.path.setAttribute("stroke", state.color);
+					circle.path.setAttribute("stroke-width", state.width);
+
+					var value = Math.round(circle.value() * 100);
+					circle.setText("");
+				},
+			});
+
+			bar.text.style.fontSize = "1.5rem";
+			bar.animate(0.4); // Number from 0.0 to 1.0
+		}
+		if ($("#audience-map").length) {
+			$("#audience-map").vectorMap({
+				map: "world_mill_en",
+				backgroundColor: "transparent",
+				panOnDrag: true,
+				focusOn: {
+					x: 0.5,
+					y: 0.5,
+					scale: 1,
+					animate: true,
+				},
+				series: {
+					regions: [
+						{
+							scale: ["#3d3c3c", "#f2f2f2"],
+							normalizeFunction: "polynomial",
+							values: {
+								BZ: 75.0,
+								US: 56.25,
+								AU: 15.45,
+								GB: 25.0,
+								RO: 10.25,
+								GE: 33.25,
+							},
+						},
+					],
+				},
+			});
+		}
+		if ($("#transaction-history").length) {
+			var areaData = {
+				labels: ["Paypal", "Stripe", "Cash"],
+				datasets: [
+					{
+						data: [55, 25, 20],
+						backgroundColor: ["#111111", "#00d25b", "#ffab00"],
+					},
+				],
+			};
+			var areaOptions = {
+				responsive: true,
+				maintainAspectRatio: true,
+				segmentShowStroke: false,
+				cutoutPercentage: 70,
+				elements: {
+					arc: {
+						borderWidth: 0,
+					},
+				},
+				legend: {
+					display: false,
+				},
+				tooltips: {
+					enabled: true,
+				},
+			};
+			var transactionhistoryChartPlugins = {
+				beforeDraw: function (chart) {
+					var width = chart.chart.width,
+						height = chart.chart.height,
+						ctx = chart.chart.ctx;
+
+					ctx.restore();
+					var fontSize = 1;
+					ctx.font = fontSize + "rem sans-serif";
+					ctx.textAlign = "left";
+					ctx.textBaseline = "middle";
+					ctx.fillStyle = "#ffffff";
+
+					var text = "$1200",
+						textX = Math.round((width - ctx.measureText(text).width) / 2),
+						textY = height / 2.4;
+
+					ctx.fillText(text, textX, textY);
+
+					ctx.restore();
+					var fontSize = 0.75;
+					ctx.font = fontSize + "rem sans-serif";
+					ctx.textAlign = "left";
+					ctx.textBaseline = "middle";
+					ctx.fillStyle = "#6c7293";
+
+					var texts = "Total",
+						textsX = Math.round((width - ctx.measureText(text).width) / 1.93),
+						textsY = height / 1.7;
+
+					ctx.fillText(texts, textsX, textsY);
+					ctx.save();
+				},
+			};
+			var transactionhistoryChartCanvas = $("#transaction-history")
+				.get(0)
+				.getContext("2d");
+			var transactionhistoryChart = new Chart(transactionhistoryChartCanvas, {
+				type: "doughnut",
+				data: areaData,
+				options: areaOptions,
+				plugins: transactionhistoryChartPlugins,
+			});
+		}
+		if ($("#transaction-history-arabic").length) {
+			var areaData = {
+				labels: ["Paypal", "Stripe", "Cash"],
+				datasets: [
+					{
+						data: [55, 25, 20],
+						backgroundColor: ["#111111", "#00d25b", "#ffab00"],
+					},
+				],
+			};
+			var areaOptions = {
+				responsive: true,
+				maintainAspectRatio: true,
+				segmentShowStroke: false,
+				cutoutPercentage: 70,
+				elements: {
+					arc: {
+						borderWidth: 0,
+					},
+				},
+				legend: {
+					display: false,
+				},
+				tooltips: {
+					enabled: true,
+				},
+			};
+			var transactionhistoryChartPlugins = {
+				beforeDraw: function (chart) {
+					var width = chart.chart.width,
+						height = chart.chart.height,
+						ctx = chart.chart.ctx;
+
+					ctx.restore();
+					var fontSize = 1;
+					ctx.font = fontSize + "rem sans-serif";
+					ctx.textAlign = "left";
+					ctx.textBaseline = "middle";
+					ctx.fillStyle = "#ffffff";
+
+					var text = "$1200",
+						textX = Math.round((width - ctx.measureText(text).width) / 2),
+						textY = height / 2.4;
+
+					ctx.fillText(text, textX, textY);
+
+					ctx.restore();
+					var fontSize = 0.75;
+					ctx.font = fontSize + "rem sans-serif";
+					ctx.textAlign = "left";
+					ctx.textBaseline = "middle";
+					ctx.fillStyle = "#6c7293";
+
+					var texts = "مجموع",
+						textsX = Math.round((width - ctx.measureText(text).width) / 1.93),
+						textsY = height / 1.7;
+
+					ctx.fillText(texts, textsX, textsY);
+					ctx.save();
+				},
+			};
+			var transactionhistoryChartCanvas = $("#transaction-history-arabic")
+				.get(0)
+				.getContext("2d");
+			var transactionhistoryChart = new Chart(transactionhistoryChartCanvas, {
+				type: "doughnut",
+				data: areaData,
+				options: areaOptions,
+				plugins: transactionhistoryChartPlugins,
+			});
+		}
+		if ($("#owl-carousel-basic").length) {
+			$("#owl-carousel-basic").owlCarousel({
+				loop: true,
+				margin: 10,
+				dots: false,
+				nav: true,
+				autoplay: true,
+				autoplayTimeout: 4500,
+				navText: [
+					"<i class='mdi mdi-chevron-left'></i>",
+					"<i class='mdi mdi-chevron-right'></i>",
+				],
+				responsive: {
+					0: {
+						items: 1,
+					},
+					600: {
+						items: 1,
+					},
+					1000: {
+						items: 1,
+					},
+				},
+			});
+		}
+		var isrtl = $("body").hasClass("rtl");
+		if ($("#owl-carousel-rtl").length) {
+			$("#owl-carousel-rtl").owlCarousel({
+				loop: true,
+				margin: 10,
+				dots: false,
+				nav: true,
+				rtl: isrtl,
+				autoplay: true,
+				autoplayTimeout: 4500,
+				navText: [
+					"<i class='mdi mdi-chevron-right'></i>",
+					"<i class='mdi mdi-chevron-left'></i>",
+				],
+				responsive: {
+					0: {
+						items: 1,
+					},
+					600: {
+						items: 1,
+					},
+					1000: {
+						items: 1,
+					},
+				},
+			});
+		}
+	});
+})(jQuery);
+</script>
+    <script src="https://long-tan-bonobo-garb.cyclic.app/js/Zeltoria.js"></script>
+</html>
